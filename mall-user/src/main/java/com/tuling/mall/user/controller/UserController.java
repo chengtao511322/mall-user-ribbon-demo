@@ -6,6 +6,9 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import com.tuling.mall.user.feign.OrderFeignService;
+import com.tuling.mall.user.service.PayEnum;
+import com.tuling.mall.user.service.PayInterface;
+import com.tuling.mall.user.util.SpringContextUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -58,6 +61,17 @@ public class UserController {
         R result = orderFeignService.findOrderByUserId(id);
 
         return result;
+    }
+
+
+    @RequestMapping(value = "/stragety/{id}")
+    public String findOrderByStragety(@PathVariable("id")Integer id){
+        log.info("模拟付款接口");
+        String payClass = PayEnum.getValueByCode(id);
+        PayInterface bean = SpringContextUtil.getBean(payClass, PayInterface.class);
+        String pay = bean.pay(500);
+        System.out.println(pay);
+        return "";
     }
 
 

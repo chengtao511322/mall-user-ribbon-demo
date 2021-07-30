@@ -23,6 +23,8 @@
         <module>spring-cloud-alibaba-nacos-sidecar-demo</module>
         <module>mall-user-consumer-demo</module>
         <module>ThreadStudy</module>
+        <module>nacos-config</module>
+        <module>Netty</module>
     </modules>
 
     <properties>
@@ -61,6 +63,12 @@
                 <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
             </dependency>
 
         </dependencies>

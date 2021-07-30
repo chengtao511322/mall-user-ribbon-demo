@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active: prod
+  application:
+    name: nacons-config
+  cloud:
+    nacos:
+      config:
+        file-extension: yaml
+        #配置中心地址
+        server-addr: 127.0.0.1:8848
+        #自定义namespace设置(6020e2ae-2cb5-4707-acf8-25b2d5b9e7ac图灵mall)
+        #加载配置文件${spring.applcation.name}-${spring.profile.active}.${file-extension}
+        namespace: 6020e2ae-2cb5-4707-acf8-25b2d5b9e7ac
